@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Studio Verde</div>
+            <ul class="nav-menu">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/about">О нас</a></li>
+                <li><a href="/projects">Проекты</a></li>
+                <li><a href="/contact">Контакты</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Заголовок страницы -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Наши проекты</h1>
+            <p>Познакомьтесь с нашей коллекцией архитектурных и интерьерных решений</p>
+        </div>
+    </section>
+
+    <!-- Секция проектов -->
+    <section class="all-projects">
+        <div class="container">
+            <% if (projects && projects.length > 0) { %>
+                <div class="projects-grid">
+                    <% projects.forEach(project => { %>
+                        <div class="project-card">
+                            <% if (project.image) { %>
+                                <img src="<%= project.image %>" alt="<%= project.title %>">
+                            <% } else { %>
+                                <img src="https://placehold.co/400x300/8FBC8F/FFFFFF?text=Project" alt="<%= project.title %>">
+                            <% } %>
+                            <div class="project-info">
+                                <h3><%= project.title %></h3>
+                                <p><%= project.category.charAt(0).toUpperCase() + project.category.slice(1) %>, <%= project.year %></p>
+                                <p><%= project.description.substring(0, 100) %><% if (project.description.length > 100) { %>...<% } %></p>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <div class="no-projects">
+                    <h2>В настоящее время нет доступных проектов</h2>
+                    <p>Мы активно работаем над новыми проектами. Заходите позже!</p>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Studio Verde</h3>
+                    <p>Архитектурная и интерьерная студия</p>
+                </div>
+                <div class="footer-contact">
+                    <p>info@studioverde.ru</p>
+                    <p>+7 (XXX) XXX-XX-XX</p>
+                </div>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Pinterest</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Studio Verde. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

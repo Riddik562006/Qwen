@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Studio Verde</div>
+            <ul class="nav-menu">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/about">О нас</a></li>
+                <li><a href="/projects">Проекты</a></li>
+                <li><a href="/contact">Контакты</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Архитектура и интерьер,<br>созданные с любовью к природе</h1>
+                <p>Мы создаем пространства, которые вдохновляют, умиротворяют и отражают вашу индивидуальность.</p>
+                <a href="/projects" class="btn-primary">Наши проекты</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- О студии -->
+    <section class="about-studio">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>О Studio Verde</h2>
+                    <p>Наша студия специализируется на создании гармоничных архитектурных решений и интерьеров, объединяющих современный дизайн с природными материалами и экологичными технологиями.</p>
+                    <p>Мы верим, что хорошее пространство должно быть не только красивым, но и комфортным, функциональным и устойчивым к окружающей среде.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://placehold.co/600x400/8FBC8F/FFFFFF?text=Studio+Verde" alt="Studio Verde Office">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Проекты -->
+    <section class="featured-projects">
+        <div class="container">
+            <h2>Избранные проекты</h2>
+            <div class="projects-grid">
+                <% if (typeof featuredProjects !== 'undefined' && featuredProjects.length > 0) { %>
+                    <% featuredProjects.forEach(project => { %>
+                        <div class="project-card">
+                            <% if (project.image) { %>
+                                <img src="<%= project.image %>" alt="<%= project.title %>">
+                            <% } else { %>
+                                <img src="https://placehold.co/400x300/8FBC8F/FFFFFF?text=Project" alt="<%= project.title %>">
+                            <% } %>
+                            <div class="project-info">
+                                <h3><%= project.title %></h3>
+                                <p><%= project.category.charAt(0).toUpperCase() + project.category.slice(1) %>, <%= project.year %></p>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x300/2E8B57/FFFFFF?text=Project+1" alt="Проект 1">
+                        <div class="project-info">
+                            <h3>Загородный дом "Лесная гавань"</h3>
+                            <p>Архитектурное проектирование, 2023</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x300/3CB371/FFFFFF?text=Project+2" alt="Проект 2">
+                        <div class="project-info">
+                            <h3>Квартира в центре города</h3>
+                            <p>Интерьер, 2023</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x300/228B22/FFFFFF?text=Project+3" alt="Проект 3">
+                        <div class="project-info">
+                            <h3>Эко-офис "Green Space"</h3>
+                            <p>Коммерческий интерьер, 2024</p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Философия -->
+    <section class="philosophy">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-image">
+                    <img src="https://placehold.co/600x500/6B8E23/FFFFFF?text=Our+Philosophy" alt="Философия Studio Verde">
+                </div>
+                <div class="philosophy-text">
+                    <h2>Наша философия</h2>
+                    <p>Мы стремимся создавать пространства, которые укрепляют связь между человеком и природой. Каждый наш проект - это результат внимательного изучения потребностей клиента, окружающей среды и контекста места.</p>
+                    <p>Мы используем устойчивые материалы, энергоэффективные решения и инновационные технологии для создания объектов, которые будут служить будущим поколениям.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контактная секция -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2>Готовы начать свой проект?</h2>
+            <p>Свяжитесь с нами, чтобы обсудить вашу идею</p>
+            <a href="/contact" class="btn-secondary">Связаться с нами</a>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Studio Verde</h3>
+                    <p>Архитектурная и интерьерная студия</p>
+                </div>
+                <div class="footer-contact">
+                    <p>info@studioverde.ru</p>
+                    <p>+7 (XXX) XXX-XX-XX</p>
+                </div>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Pinterest</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Studio Verde. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
